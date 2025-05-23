@@ -1,17 +1,21 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
+// jest.config.mjs
 export default {
-  preset: 'ts-jest/presets/js-with-ts-esm',
-  testEnvironment: 'node',
-  extensionsToTreatAsEsm: ['.ts', '.tsx'],
   transform: {
-    '^.+\\.(ts|tsx)$': ['ts-jest', {
-      useESM: true,
-      tsconfig: 'tsconfig.jest.json'
-    }]
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        useESM: true,
+        tsconfig: 'tsconfig.jest.json'
+      },
+    ],
   },
+  preset: 'ts-jest/presets/default-esm',
   moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
+  testEnvironment: 'node',
   transformIgnorePatterns: [
     'node_modules/(?!(@payloadcms|payload)/)'
   ],

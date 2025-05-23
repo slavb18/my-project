@@ -13,6 +13,7 @@
       "DOM.Iterable",
       "ES2022"
     ],
+    "types": ["jest", "node"],
     "allowJs": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
